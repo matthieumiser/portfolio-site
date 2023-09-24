@@ -9,14 +9,8 @@ import {
   Image,
   Link,
   Icon,
-  Spacer
 } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin, FaAngleDown } from 'react-icons/fa';
-import {
-  SiGo, SiPython, SiJavascript, SiReact, SiElixir, SiPhoenix, SiGraphql, SiGitlab, SiDocker, SiTerraform, SiSnowflake
-} from 'react-icons/si';
-import { createGlobalStyle } from 'styled-components';
-import deviconStyles from 'devicon/devicon.min.css';
 import { keyframes, Button } from '@chakra-ui/react';
 
 // Fade-in keyframes
@@ -53,10 +47,9 @@ const scrollToNextComponent = () => {
 function App() {
   return (
     <ChakraProvider>
-      <Flex direction="column" h="400vh">
+      <Flex direction="column" h="300vh">
         <HeaderSection />
         <BioSection />
-        <ExperienceSection />
         <ProjectsSection />
       </Flex>
     </ChakraProvider>
@@ -203,29 +196,58 @@ function BioSection() {
   );
 }
 
-
-
-function ExperienceSection() {
-  return (
-    <Box h="100vh" bg="gray.600" color="white" p={8}>
-      <Flex direction="column" align="center" justify="center" h="100%">
-        <Text fontSize="2xl" mt={4}>Experience</Text>
-        <Text mt={2}>Short overview of your experience...</Text>
-      </Flex>
-    </Box>
-  );
-}
-
 function ProjectsSection() {
   return (
-    <Box h="100vh" bg="gray.500" color="white" p={8}>
-      <Flex direction="column" align="center" justify="center" h="100%">
-        <Text fontSize="2xl" mt={4}>Side Projects</Text>
-        <Text mt={2}>Overview of your first project...</Text>
-        <Text mt={4}>Overview of your second project...</Text>
+    <Box id="bio-section" h="100vh" bg="gray.500" color="white" p={8}>
+      <Flex direction="row" align="center" justify="center" h="100%" pl={32} pr={32}>
+
+        {/* Left Half: Bio and Picture */}
+        <Flex direction="column" align="start" justify="center" w="40%" pr={4}>
+          <Image src="/assets/profile-picture.jpg" borderRadius="full" boxSize="150px" mb={4} />
+          <Text fontSize="2xl" mb={4}>Matthieu Miser</Text>
+          <Text mb={2} textAlign="justify">
+            I'm a software engineer with a strong footing in both development and data engineering. At Podium, I've streamlined user experiences, leveraging technologies like ReactJS and Elixir, and unified messaging products to boost user engagement.
+          </Text>
+          <Text mb={2} textAlign="justify">
+            I also contributed significantly to Podium's data stack, where I significantly improved data infrastructures, migrating systems to Snowflake and optimizing data delivery.
+          </Text>
+          <Text mb={2} textAlign="justify">
+            Outside my day job, I'm passionate about blockchain, HTMX, and Go.
+          </Text>
+        </Flex>
+
+        {/* Spacer for Divider */}
+        <Box w="5%"></Box>
+
+        {/* Right Half: Skills */}
+        <Flex direction="column" align="start" justify="center" w="40%" pl={4}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '16px', fontSize: '18px', fontFamily: 'Poppins, sans-serif' }}>
+
+            {[
+              { src: './assets/youtube-focus-screenshot.png', alt: 'Go', link: 'https://golang.org/' },
+              // Add DBT and Snowflake here if you have icons or other elements for them.
+            ]
+              .map(icon => (
+                <Flex direction="column" align="center" justify="center" bg="gray.500"
+                  style={{ border: '1px solid white', borderRadius: '8px', padding: '16px' }}
+                  _hover={{ transform: "scale(1.1)" }}
+                  transition="all 0.3s">
+                  <a href={icon.link} target="_blank" rel="noopener noreferrer" style={{ textAlign: 'center' }}>
+                    <img src={icon.src} alt={icon.alt} style={{ marginBottom: '8px' }} />
+                    <div style={{ lineHeight: '1', margin: 0 }}>{icon.alt}</div>
+                  </a>
+                </Flex>
+
+              ))}
+
+
+          </div>
+        </Flex>
+
       </Flex>
     </Box>
   );
 }
+
 
 export default App;
