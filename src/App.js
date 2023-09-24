@@ -198,21 +198,14 @@ function BioSection() {
 
 function ProjectsSection() {
   return (
-    <Box id="bio-section" h="100vh" bg="gray.500" color="white" p={8}>
-      <Flex direction="row" align="center" justify="center" h="100%" pl={32} pr={32}>
+    <Box id="bio-section" h="100vh" bg="gray.500" color="white" pl={8} pr={0} >
+      <Flex direction="row" align="center" justify="center" h="100%" pl={32} pr={0}>
 
         {/* Left Half: Bio and Picture */}
-        <Flex direction="column" align="start" justify="center" w="40%" pr={4}>
+        <Flex direction="column" align="start" justify="center" w="20%" pr={4}>
           <Image src="/assets/profile-picture.jpg" borderRadius="full" boxSize="150px" mb={4} />
           <Text fontSize="2xl" mb={4}>Matthieu Miser</Text>
           <Text mb={2} textAlign="justify">
-            I'm a software engineer with a strong footing in both development and data engineering. At Podium, I've streamlined user experiences, leveraging technologies like ReactJS and Elixir, and unified messaging products to boost user engagement.
-          </Text>
-          <Text mb={2} textAlign="justify">
-            I also contributed significantly to Podium's data stack, where I significantly improved data infrastructures, migrating systems to Snowflake and optimizing data delivery.
-          </Text>
-          <Text mb={2} textAlign="justify">
-            Outside my day job, I'm passionate about blockchain, HTMX, and Go.
           </Text>
         </Flex>
 
@@ -220,21 +213,20 @@ function ProjectsSection() {
         <Box w="5%"></Box>
 
         {/* Right Half: Skills */}
-        <Flex direction="column" align="start" justify="center" w="40%" pl={4}>
+        <Flex direction="column" align="start" justify="center" w="60%" pl={2} pr={0} >
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '16px', fontSize: '18px', fontFamily: 'Poppins, sans-serif' }}>
 
             {[
-              { src: './assets/youtube-focus-screenshot.png', alt: 'Go', link: 'https://golang.org/' },
+              { src: './assets/youtube-focus-screenshot.png', alt: 'Youtube Focus', link: 'https://golang.org/' },
               // Add DBT and Snowflake here if you have icons or other elements for them.
             ]
               .map(icon => (
                 <Flex direction="column" align="center" justify="center" bg="gray.500"
-                  style={{ border: '1px solid white', borderRadius: '8px', padding: '16px' }}
-                  _hover={{ transform: "scale(1.1)" }}
+                  style={{ borderRadius: '8px', padding: '0px' }}
+                  _hover={{ transform: "scale(1.3)" }}
                   transition="all 0.3s">
                   <a href={icon.link} target="_blank" rel="noopener noreferrer" style={{ textAlign: 'center' }}>
-                    <img src={icon.src} alt={icon.alt} style={{ marginBottom: '8px' }} />
-                    <div style={{ lineHeight: '1', margin: 0 }}>{icon.alt}</div>
+                    <img src={icon.src} alt={icon.alt} style={{ borderRadius: '2%' }} />
                   </a>
                 </Flex>
 
